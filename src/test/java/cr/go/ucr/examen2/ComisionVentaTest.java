@@ -53,4 +53,11 @@ class ComisionVentaTest {
         assertEquals(2250.0015, comisionVenta.calcular(15000.01), 0.0001, "El cálculo para 15000.01 debe ser 15%");
         assertEquals(15000.0, comisionVenta.calcular(100000.0), "El cálculo para 100000 debe ser 15%");
     }
+    
+    @Test
+    void testCalcularComisionSinRango() {
+        ComisionVenta comisionVenta = ComisionVenta.getCurrentInstance();
+        assertEquals(-1.0, comisionVenta.calcular(5500.0), "Valores fuera de los rangos definidos deben devolver -1");
+    }
+    
 }
